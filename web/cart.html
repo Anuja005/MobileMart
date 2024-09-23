@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Mobile Mart</title>
+        <meta name="description" content="description">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/images/icon.webp" />
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="assets/css/plugins.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/notification.css" />
+
+    </head>
+
+<body onload="loadCartItems(); checkSignIn();">
+
+        <!-- Search Form Drawer -->
+        <div class="search">
+            <div class="search__form">
+                <form class="search-bar__form" action="search.html" method="GET">
+                    <button class="go-btn search__button" type="submit"><i class="icon anm anm-search-l"></i></button>
+                    <input class="search__input" type="search" name="q" value="" placeholder="Search entire store..." aria-label="Search" autocomplete="off">
+                </form>
+                <button type="button" class="search-trigger close-btn"><i class="anm anm-times-l"></i></button>
+            </div>
+        </div>
+        <!-- End Search Form Drawer -->
+
+        <!--Top Header-->
+        <div class="top-header" >
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-10 col-sm-8 col-md-5 col-lg-4">
+                        <div class="currency-picker">
+                            <span class="selected-currency">LKR</span>
+                            <ul id="currencies">
+                                <li data-currency="INR" class="">USD</li>                         
+                            </ul>
+                        </div>
+                        <div class="language-dropdown">
+                            <span class="language-dd">English</span>
+                            <ul id="language">
+                                <li class="">German</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
+                        <div class="text-center"><p class="top-header_middle-text"> Mobile Mart</p></div>
+                    </div>
+                    <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
+                        <span class="user-menu d-block d-lg-none"><i class="anm anm-user-al" aria-hidden="true"></i></span>
+                        <ul class="customer-links list-inline" id="st-quick-link">
+                            <li><a href="sign-in.html" id="st-quick-link-li-2">Login</a></li>
+                            <li><a href="sign-up.html" id="st-quick-link-li-1">Create Account</a></li>
+                            <li><a href="my-account.html">My Account</a></li>
+                            
+                            
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Top Header-->
+        <!--Header-->
+        <div class="header-wrap animated d-flex">
+            <div class="container-fluid">        
+                <div class="row align-items-center">
+                    <!--Desktop Logo-->
+                    <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
+                        <a href="index.html">
+                            <img src="https://www.mobilemart.co.za/wp-content/uploads/2019/02/Header-Logo-500x271-300dpi.png" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                        </a>
+                    </div>
+                    <!--End Desktop Logo-->
+                    <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+                        <div class="d-block d-lg-none">
+                            <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
+                                <i class="icon anm anm-times-l"></i>
+                                <i class="anm anm-bars-r"></i>
+                            </button>
+                        </div>
+                        <!--Desktop Menu-->
+                        <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
+                            <ul id="siteNav" class="site-nav medium center hidearrow">
+                                <li class="lvl1 parent megamenu"><a href="index.html">Home <i class="anm anm-angle-down-l"></i></a>
+
+                                </li>
+                                <li class="lvl1 parent megamenu"><a href="search.html">Shop <i class="anm anm-angle-down-l"></i></a>
+
+                                </li>
+
+                            </ul>
+                        </nav>
+                        <!--End Desktop Menu-->
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo.svg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-4 col-sm-3 col-md-3 col-lg-2">
+                        <div class="site-header__search m-lg-auto" >
+                           
+                        </div>
+                        <div class="site-cart">
+                            <a href="#;" class="site-header__cart" title="Cart">
+                                <i class="icon anm anm-bag-l"></i>
+                                <span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
+                            </a>
+                            <!--Minicart Popup-->
+                            <div id="header-cart" class="block block-cart">
+
+                                <div class="total">
+                                    <div class="total-in">
+                                    </div>
+                                    <div class="buttonSet text-center">
+                                        <a href="cart.html" class="btn btn-secondary btn--small">View Cart</a>
+                                        <a href="checkout.html" class="btn btn-secondary btn--small">Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Minicart Popup-->
+                        </div>
+                        <div class="site-header__search">
+                            <button type="button" class="search-trigger"><i class="icon anm anm-search-l"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header-->
+
+        <!-- Mobile Menu -->
+        <div class="mobile-nav-wrapper" role="navigation">
+            <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
+            <ul id="MobileNav" class="mobile-nav">
+                <li class="lvl1 parent megamenu"><a href="index.html">Home </a></li>
+                <li class="lvl1 parent megamenu"><a href="search.html">Shop </a></li>
+            </ul>
+        </div>
+        <!-- End Mobile Menu -->
+
+        <!-- Main Content -->
+        <main class="main-wrapper" id="cart-main">
+            <!-- Start Cart Area -->
+            <div class="axil-product-cart-area axil-section-gap">
+                <div class="container">
+                    <div class="axil-product-cart-wrap">
+                        <div class="product-table-heading d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="title">Your Cart</h4>
+                            <a href="#" class="cart-clear text-danger">Clear Shopping Cart</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table axil-product-table axil-cart-table mb-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="product-remove"></th>
+                                        <th scope="col" class="product-thumbnail">Product</th>
+                                        <th scope="col" class="product-title">Title</th>
+                                        <th scope="col" class="product-price">Price</th>
+                                        <th scope="col" class="product-quantity">Quantity</th>
+                                        <th scope="col" class="product-subtotal">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItemContainer">
+                                    <tr id="cartItemRow">
+                                        <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
+                                        <td class="product-thumbnail">
+                                            <a href="#" id="cartItemA">
+                                                <img src="./assets/images/product/product-01.png" id="cartItemImage" alt="Product" style="width: 50px; height: auto;">
+                                            </a>
+                                        </td>
+                                        <td class="product-title"><a href="#" id="cartItemTitle">Title</a></td>
+                                        <td class="product-price" data-title="Price"><span class="currency-symbol">Rs.</span> <span id="cartItemPrice">100,000.00</span></td>
+                                        <td class="product-quantity" data-title="Qty">
+                                            <div class="pro-qty">
+                                                <input type="number" class="quantity-input form-control" value="1" id="cartItemQty" min="1">
+                                            </div>
+                                        </td>
+                                        <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">Rs. </span><span id="cartItemSubtotal">100,000.00</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-7 offset-xl-7 offset-lg-5">
+                                <div class="axil-order-summery mt-4 p-3 border rounded">
+                                    <h5 class="title mb-3">Order Summary</h5>
+                                    <div class="summery-table-wrap">
+                                        <table class="table summery-table mb-3">
+                                            <tbody>
+                                                <tr class="order-subtotal">
+                                                    <td>Quantities</td>
+                                                    <td class="order-total-amount" id="cartTotalQty">1</td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <td>Total</td>
+                                                    <td class="order-total-amount" id="cartTotal">Rs. 100,000.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a href="checkout.html" class="axil-btn btn-bg-primary checkout-btn btn btn-primary btn-block">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Cart Area -->
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="site-footer">
+                    <div class="container">
+                        <!-- Footer Links -->
+                        <div class="footer-top">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                                    <h4 class="h4">Quick Shop</h4>
+                                    <ul>
+                                        <li><a href="#">Women</a></li>
+                                        <li><a href="#">Men</a></li>
+                                        <li><a href="#">Kids</a></li>
+                                        <li><a href="#">Sportswear</a></li>
+                                        <li><a href="#">Sale</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                                    <h4 class="h4">Informations</h4>
+                                    <ul>
+                                        <li><a href="#">About us</a></li>
+                                        <li><a href="#">Careers</a></li>
+                                        <li><a href="#">Privacy policy</a></li>
+                                        <li><a href="#">Terms &amp; condition</a></li>
+                                        <li><a href="#">My Account</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 footer-links">
+                                    <h4 class="h4">Customer Services</h4>
+                                    <ul>
+                                        <li><a href="#">Request Personal Data</a></li>
+                                        <li><a href="#">FAQ's</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Orders and Returns</a></li>
+                                        <li><a href="#">Support Center</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-3 contact-box">
+                                    <h4 class="h4">Contact Us</h4>
+                                    <ul class="addressFooter">
+                                        <li><i class="icon anm anm-map-marker-al"></i><p>Ellegedara, Bandarakoswaththa<br>60424 Wariyapoala , Kurunegala</p></li>
+                                        <li class="phone"><i class="icon anm anm-phone-s"></i><p>(+94)779708798</p></li>
+                                        <li class="email"><i class="icon anm anm-envelope-l"></i><p>sales@fashionhub.com</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Footer Links -->
+                        <hr>
+                        <div class="footer-bottom">
+                            <div class="row">
+                                <!-- Footer Copyright -->
+                                <div class="col-xl-4">
+                                    <div class="footer-social">
+                                        <ul class="list--inline site-footer__social-icons social-icons">
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Facebook"><i class="icon icon-facebook"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Twitter"><i class="icon icon-twitter"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Pinterest"><i class="icon icon-pinterest"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Instagram"><i class="icon icon-instagram"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Tumblr"><i class="icon icon-tumblr-alt"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on YouTube"><i class="icon icon-youtube"></i></a></li>
+                                            <li><a class="social-icons__link" href="#" target="_blank" title="Mobile Mart on Vimeo"><i class="icon icon-vimeo-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-12">
+                                    <div class="copyright-left d-flex flex-wrap justify-content-center">
+                                        <ul class="quick-link">
+                                            <li>© 2024. All rights reserved by <a target="_blank" href="#">Mobile Mart</a>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-12">
+                                    <div class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
+                                        <span class="card-text">Accept For</span>
+                                        <ul class="payment-icons list--inline">
+                                            <li><i class="icon fa fa-cc-visa" aria-hidden="true"></i></li>
+                                            <li><i class="icon fa fa-cc-mastercard" aria-hidden="true"></i></li>
+                                            <li><i class="icon fa fa-cc-discover" aria-hidden="true"></i></li>
+                                            <li><i class="icon fa fa-cc-paypal" aria-hidden="true"></i></li>
+                                            <li><i class="icon fa fa-cc-amex" aria-hidden="true"></i></li>
+                                            <li><i class="icon fa fa-credit-card" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Footer Payment Icon -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </main>
+
+        <!-- Including jQuery -->
+        <script src="assets/js/vendor/myproject/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/vendor/myproject/modernizr-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/myproject/jquery.cookie.js"></script>
+        <script src="assets/js/vendor/myproject/wow.min.js"></script>
+        <!-- Including JavaScript -->
+        <script src="assets/js/vendor/myproject/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/myproject/plugins.js"></script>
+        <script src="assets/js/vendor/myproject/popper.min.js"></script>
+        <script src="assets/js/vendor/myproject/lazysizes.js"></script>
+        <script src="assets/js/vendor/myproject/main.js"></script>
+
+        <script src="assets/js/cart.js"></script>
+
+        <script src="assets/js/notification.js"></script>
+        <script src="assets/js/index.js"></script>
+
+
+    </body>
+
+</html>
